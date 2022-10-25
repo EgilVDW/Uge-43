@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -8,13 +9,18 @@ namespace ElectrisityAPI.Controllers
     [ApiController]
     public class CSVController : ControllerBase
     {
-        public string[] CSV { get; set; }
-
         // GET: api/<CSVController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public async Task<string> GetAsync()
         {
-            return CSV;
+            using HttpClient client = new()
+            {
+                BaseAddress = new Uri(@"https://api.eloverblik.dk/customerapi/api/meterdata/gettimeseries/")
+            };
+
+            using HttpResponseMessage response = await client.GetAsync("2022-10-12/2022-10-13/Hour");
+            return await response.Content.ReadAsStringAsync();
+
             //return new string[] { "value1", "value2" };
         }
 
