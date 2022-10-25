@@ -4,9 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Program
+namespace Project
 {
-    internal class Meter
+    public class Meter
     {
-    }
+		private int _id;
+
+		public int Id
+		{
+			get { return _id; }
+		}
+
+	}
 }
