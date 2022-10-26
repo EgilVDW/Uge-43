@@ -9,7 +9,7 @@ namespace ClassForFirstSem
 {
     public class PullData
     {
-        public async Task GetDataAsync()
+        public async Task<List<string>> GetDataAsync()
         {
             HttpClient client = new HttpClient();
             using HttpResponseMessage response = await client.GetAsync("https://localhost:7148/api/CSV");
@@ -21,8 +21,9 @@ namespace ClassForFirstSem
                 PropertyNamingPolicy = JsonNamingPolicy.CamelCase
             };
 
-            //var rental = JsonSerializer.Deserialize<List>(jsonRespone, options);
-
+            var Data = JsonSerializer.Deserialize<List<string>>(jsonRespone, options);
+            
+            return Data;
         }
     }
 }

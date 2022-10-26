@@ -9,18 +9,31 @@ namespace ElectrisityAPI.Controllers
     [ApiController]
     public class CSVController : ControllerBase
     {
+        private readonly string dataPath = @"C:\Users\rasmu\Desktop\Uge-43\ElectrisityAPI\ElectrisityAPI\Data\data.csv";
+        //string[]? data;
+        List<string> data = new List<string>();
+
+        [NonAction]
+        public List<string> MakeData()
+        {
+            using (StreamReader sr = new(dataPath))
+            {
+                int i = 0;
+                while (sr.Peek() > -1)
+                {
+                    data.Add(sr.ReadLine());
+                    i++;
+                }
+            }
+            return data;
+        }
+
+
         // GET: api/<CSVController>
         [HttpGet]
-        public async Task<string> GetAsync()
+        public List<string> GetAsync()
         {
-            using HttpClient client = new()
-            {
-                BaseAddress = new Uri(@"https://api.eloverblik.dk/customerapi/api/meterdata/gettimeseries/")
-            };
-
-            using HttpResponseMessage response = await client.GetAsync("2022-10-12/2022-10-13/Hour");
-            return await response.Content.ReadAsStringAsync();
-
+            return MakeData();
             //return new string[] { "value1", "value2" };
         }
 
