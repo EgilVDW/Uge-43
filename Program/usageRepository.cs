@@ -36,7 +36,7 @@ namespace Project
             Meter tempMeter = new Meter();
             string[] splittedEntry;
             foreach (string item in line)
-	{
+	        {
                 splittedEntry = item.Split(';');
                 tempMeter = new Meter(int.Parse(splittedEntry[0]));
                 temp = new Usage
@@ -45,7 +45,7 @@ namespace Project
                 Date = DateTime.ParseExact(splittedEntry[1],"yyyy-MM-dd hh,mm",CultureInfo.InvariantCulture);
                     Amount = double.Parse(splittedEntry[3]);
                 }
-	}
+	        }
 
         }
     public List<Usage> Read(Meter meterId)
@@ -53,28 +53,27 @@ namespace Project
         List<Usage> usages = new List<Usage>();
 
         foreach (Usage item in usages)
-	{
+	    {
             if (item.Id == meterId)
             {
                 usages.Add(item);
             }
-	}
+	    }
         return usages;
     }
 
         public List<Usage> Read(Meter meterId, DateTime fromDate, DatetTime toDate)
-    {
+        {
         List<Usage> usages = new List<Usage>();
 
         foreach (Usage item in usages)
-	{
+	    {
             if (item.Id == meterId && DateTime.Compare(fromDate,item.Date) < 0 && DateTime.Compare(toDate,item.Date) > 0)
             {
                 usages.Add(item);
             }
-	}
+	    }
         return usages;
-    }
-
+        }
     }
 }
