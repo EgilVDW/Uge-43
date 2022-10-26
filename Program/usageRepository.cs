@@ -17,7 +17,7 @@ namespace Project
 
         public usageRepository()
         {
-            using (StreamReader sr = new StreamReader(@"C:\Users\Bruger\Downloads\Måledata-2 år.csv"))
+            using (StreamReader sr = new StreamReader(@"..\..\..\data.csv"))
             {
                 int i = 0;
                 while (sr.Peek() > -1)
@@ -28,13 +28,8 @@ namespace Project
                     }
                     i++;
                     line.Add(i + ";" + sr.ReadLine());
-
                 }
             }
-        }
-        public void ConvertToArray()
-        {
-            string[] lineArray = line.ToArray();
         }
 
         public usageRepository(Meter _id, DateTime Date)
