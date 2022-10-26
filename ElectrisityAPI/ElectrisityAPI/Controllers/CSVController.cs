@@ -9,7 +9,7 @@ namespace ElectrisityAPI.Controllers
     [ApiController]
     public class CSVController : ControllerBase
     {
-        private readonly string dataPath = @"C:\Users\rasmu\Desktop\Uge-43\ElectrisityAPI\ElectrisityAPI\Data\data.csv";
+        private readonly string dataPath = @"data.csv";
         //string[]? data;
         List<string> data = new List<string>();
 
@@ -33,6 +33,10 @@ namespace ElectrisityAPI.Controllers
         [HttpGet]
         public List<string> GetAsync()
         {
+            //List<string> hej = new List<string>();
+            //hej.Add("Hej");
+            //hej.Add("Nej");
+            //return hej;
             return MakeData();
             //return new string[] { "value1", "value2" };
         }

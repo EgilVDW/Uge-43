@@ -12,7 +12,7 @@ namespace ClassForFirstSem
         public async Task<List<string>> GetDataAsync()
         {
             HttpClient client = new HttpClient();
-            using HttpResponseMessage response = await client.GetAsync("https://localhost:7148/api/CSV");
+            using HttpResponseMessage response = await client.GetAsync("http://gruppe2.simonstochholm.dk/api/csv");
             response.EnsureSuccessStatusCode();
             var jsonRespone = await response.Content.ReadAsStringAsync();
 
