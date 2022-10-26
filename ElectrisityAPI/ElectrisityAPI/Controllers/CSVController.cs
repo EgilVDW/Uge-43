@@ -21,7 +21,7 @@ namespace ElectrisityAPI.Controllers
                 int i = 0;
                 while (sr.Peek() > -1)
                 {
-                    data.Add(sr.ReadLine());
+                    data.Add(i + ";" + sr.ReadLine());
                     i++;
                 }
             }
@@ -33,10 +33,6 @@ namespace ElectrisityAPI.Controllers
         [HttpGet]
         public List<string> GetAsync()
         {
-            //List<string> hej = new List<string>();
-            //hej.Add("Hej");
-            //hej.Add("Nej");
-            //return hej;
             return MakeData();
             //return new string[] { "value1", "value2" };
         }

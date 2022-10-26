@@ -25,5 +25,26 @@ namespace ClassForFirstSem
             
             return Data;
         }
+
+        public async Task DoThingAsync()
+        {
+            List<string> data = await GetDataAsync();
+            string[] tempArray;
+            string[] temp = data.ToArray();
+            string[] meterID = new string[temp.Length];
+            string[] fromData = new string[temp.Length];
+            string[] toDate = new string[temp.Length];
+            string[] value = new string[temp.Length];
+
+            for (int i = 0; i < temp.Length; i++)
+            {
+                tempArray = temp[i].Split(";");
+                meterID[i] = tempArray[0];
+                fromData[i] = tempArray[1];
+                toDate[i] = tempArray[2];
+                value[i] = tempArray[3];
+                Console.WriteLine(temp[i]);
+            }
+        }
     }
 }
