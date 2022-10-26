@@ -25,11 +25,9 @@ namespace ElectrisityAPI.Controllers
         {
             using (StreamReader sr = new(env.ContentRootPath + dataPath))
             {
-                int i = 0;
                 while (sr.Peek() > -1)
                 {
-                    data.Add(i + ";" + sr.ReadLine());
-                    i++;
+                    data.Add(sr.ReadLine());
                 }
             }
             return data;
