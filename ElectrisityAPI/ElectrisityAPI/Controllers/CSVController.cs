@@ -12,11 +12,18 @@ namespace ElectrisityAPI.Controllers
         private readonly string dataPath = @"data.csv";
         //string[]? data;
         List<string> data = new List<string>();
+        IWebHostEnvironment env;
+
+        public CSVController(IWebHostEnvironment env)
+        {
+            this.env = env;
+        }
+
 
         [NonAction]
-        public List<string> MakeData()
+        public List<string> MakeData(IWebHostEnvironment env)
         {
-            using (StreamReader sr = new(dataPath))
+            using (StreamReader sr = new(env.ContentRootPath + dataPath))
             {
                 int i = 0;
                 while (sr.Peek() > -1)
@@ -33,7 +40,7 @@ namespace ElectrisityAPI.Controllers
         [HttpGet]
         public List<string> GetAsync()
         {
-            return MakeData();
+            return MakeData(env);
             //return new string[] { "value1", "value2" };
         }
 
