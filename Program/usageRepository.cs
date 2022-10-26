@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Dynamic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ namespace Project
         DateTime _date;
 
         List<string> line = new List<string>();
+        List<Usage> usages = new List<Usage>();
 
         public usageRepository()
         {
@@ -27,15 +29,52 @@ namespace Project
                         sr.ReadLine();
                     }
                     i++;
-                    line.Add(i + ";" + sr.ReadLine());
+                    line.Add(sr.ReadLine());
                 }
             }
-        }
+            Usage tempUsage = new Usage();
+            Meter tempMeter = new Meter();
+            string[] splittedEntry;
+            foreach (string item in line)
+	{
+                splittedEntry = item.Split(';');
+                tempMeter = new Meter(int.Parse(splittedEntry[0]));
+                temp = new Usage
+                {
+                    Id = tempMeter;
+                Date = DateTime.ParseExact(splittedEntry[1],"yyyy-MM-dd hh,mm",CultureInfo.InvariantCulture);
+                    Amount = double.Parse(splittedEntry[3]);
+                }
+	}
 
-        public usageRepository(Meter _id, DateTime Date)
-        {
-
         }
+    public List<Usage> Read(Meter meterId)
+    {
+        List<Usage> usages = new List<Usage>();
+
+        foreach (Usage item in usages)
+	{
+            if (item.Id == meterId)
+            {
+                usages.Add(item);
+            }
+	}
+        return usages;
+    }
+
+        public List<Usage> Read(Meter meterId, DateTime fromDate, DatetTime toDate)
+    {
+        List<Usage> usages = new List<Usage>();
+
+        foreach (Usage item in usages)
+	{
+            if (item.Id == meterId && DateTime.Compare(fromDate,item.Date) < 0 && DateTime.Compare(toDate,item.Date) > 0)
+            {
+                usages.Add(item);
+            }
+	}
+        return usages;
+    }
 
     }
 }

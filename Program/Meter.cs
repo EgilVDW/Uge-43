@@ -15,5 +15,9 @@ namespace Project
 			get { return _id; }
 		}
 
+		public Meter (int id)
+	{
+			_id = id;
+	}
 	}
 }
