@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Metrics;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -49,14 +50,30 @@ namespace Project
             }
         }
 
-        public List<Usage> Read(Meter meter)
+        public List<Usage> Read(Meter meterId)
         {
-            throw new NotImplementedException();
+            List<Usage> usages = new List<Usage>();
+            foreach (Usage item in this.usages)
+            {
+                if (item.Id == meterId)
+                {
+                    usages.Add(item);
+                }
+            }
+            return usages;
         }
 
-        public List<Usage> Read(Meter meter, DateTime dateTime, DateTime dateTime1)
+        public List<Usage> Read(Meter meterId, DateTime fromDate, DateTime toDate)
         {
-            throw new NotImplementedException();
+            List<Usage> usages = new List<Usage>();
+            foreach (Usage item in this.usages)
+            {
+                if (item.Id == meterId && DateTime.Compare(fromDate, item.Date) < 0 && DateTime.Compare(toDate, item.Date) > 0)
+                {
+                    usages.Add(item);
+                }
+            }
+            return usages;
         }
     }
 }

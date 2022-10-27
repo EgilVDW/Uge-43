@@ -52,7 +52,7 @@ namespace Project
         public List<Usage> Read(Meter meterId)
         {
             List<Usage> usages = new List<Usage>();
-            foreach (Usage item in usages)
+            foreach (Usage item in this.usages)
 	        {
                 if (item.Id == meterId)
                 {
@@ -65,7 +65,7 @@ namespace Project
         public List<Usage> Read(Meter meterId, DateTime fromDate, DateTime toDate)
         {
             List<Usage> usages = new List<Usage>();
-            foreach (Usage item in usages)
+            foreach (Usage item in this.usages)
 	        {
                 if (item.Id == meterId && DateTime.Compare(fromDate,item.Date) < 0 && DateTime.Compare(toDate,item.Date) > 0)
                 {
