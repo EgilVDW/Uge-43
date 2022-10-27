@@ -13,6 +13,7 @@ namespace Project
 		public double Amount
 		{
 			get { return _amount; }
+			set { _amount = value; }
 		}
 
 		private DateTime _date;
@@ -20,6 +21,7 @@ namespace Project
 		public DateTime Date
 		{
 			get { return _date; }
+			set { _date = value; }
 		}
 
 		private Meter _id;
@@ -27,7 +29,7 @@ namespace Project
 		public  Meter Id
 		{
 			get { return _id; }
+			set { _id = value; }
 		}
-
 	}
 }

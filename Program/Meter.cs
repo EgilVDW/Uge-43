@@ -8,16 +8,16 @@ namespace Project
 {
     public class Meter
     {
-		private int _id;
+		private long _id;
 
-		public int Id
+		public long Id
 		{
 			get { return _id; }
 		}
 
-		public Meter (int id)
-	{
+		public Meter (long id)
+		{
 			_id = id;
-	}
+		}
 	}
 }

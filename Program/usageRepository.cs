@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Project
 {
-    public class usageRepository
+    public class usageRepository : IRepository
     {
         int _id;
         double _amount;
@@ -33,19 +33,20 @@ namespace Project
                 }
             }
             Usage tempUsage = new Usage();
-            Meter tempMeter = new Meter();
+            Meter tempMeter = new Meter(-1);
             string[] splittedEntry;
             foreach (string item in line)
-	        {
+            {
                 splittedEntry = item.Split(';');
-                tempMeter = new Meter(int.Parse(splittedEntry[0]));
-                temp = new Usage
+                tempMeter = new Meter(long.Parse(splittedEntry[0]));
+                tempUsage = new Usage()
                 {
-                    Id = tempMeter;
-                Date = DateTime.ParseExact(splittedEntry[1],"yyyy-MM-dd hh,mm",CultureInfo.InvariantCulture);
-                    Amount = double.Parse(splittedEntry[3]);
-                }
-	        }
+                    Id = tempMeter,
+                    Date = DateTime.ParseExact(splittedEntry[1], "yyyy-MM-dd HH,mm", CultureInfo.InvariantCulture),
+                    Amount = double.Parse(splittedEntry[3])
+                };
+                usages.Add(tempUsage);
+            }
         }
 
         public List<Usage> Read(Meter meterId)
@@ -61,7 +62,7 @@ namespace Project
             return usages;
         }
 
-        public List<Usage> Read(Meter meterId, DateTime fromDate, DatetTime toDate)
+        public List<Usage> Read(Meter meterId, DateTime fromDate, DateTime toDate)
         {
             List<Usage> usages = new List<Usage>();
             foreach (Usage item in usages)

@@ -1,6 +1,6 @@
 ﻿using Project;
     
-    namespace Project
+namespace Project
 {
     internal class Program
     {
@@ -8,6 +8,7 @@
         {
             Console.WriteLine("Hello, World!");
             usageRepository uR = new usageRepository();
+            APIRepository apiRepository = new APIRepository();
         }
     }
 }
