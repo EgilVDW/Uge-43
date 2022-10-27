@@ -7,8 +7,8 @@ namespace Project
         static void Main(string[] args)
         {
             Console.WriteLine("Hello, World!");
-            usageRepository uR = new usageRepository();
-            APIRepository apiRepository = new APIRepository();
+            IRepository uR = new APIRepository();
+            //APIRepository apiRepository = new APIRepository();
         }
     }
 }
