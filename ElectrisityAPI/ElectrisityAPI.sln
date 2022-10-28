@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32811.315
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ElectrisityAPI", "ElectrisityAPI\ElectrisityAPI.csproj", "{AD29D53D-96D6-4D0C-AD1F-2CF8AB4993FD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AD29D53D-96D6-4D0C-AD1F-2CF8AB4993FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD29D53D-96D6-4D0C-AD1F-2CF8AB4993FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD29D53D-96D6-4D0C-AD1F-2CF8AB4993FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD29D53D-96D6-4D0C-AD1F-2CF8AB4993FD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {29ED26DF-9F0B-4E78-A9BF-B3AFF7404AAC}
+	EndGlobalSection
+EndGlobal
